@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./AddTaskStyles.css";
+import { useNavigate } from "react-router";
 
 const AddTask = ({ fetchAllTasks }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-
+  const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -36,7 +37,9 @@ const AddTask = ({ fetchAllTasks }) => {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-        <button type="submit">Add</button>
+        <button type="submit" onClick={() => navigate("/")}>
+          Add
+        </button>
       </form>
     </div>
   );
