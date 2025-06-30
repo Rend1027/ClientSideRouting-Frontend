@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import {Link} from "react-router";
 import "./TaskCardStyles.css";
 
 const TaskCard = ({ task, fetchAllTasks }) => {
@@ -26,7 +27,7 @@ const TaskCard = ({ task, fetchAllTasks }) => {
   return (
     <div className={`task-card ${task.completed ? "completed" : "incomplete"}`}>
       <div className="task-card-header">
-        <h2>{task.title}</h2>
+        <Link to={`/tasks/${task.id}`}><h2>{task.title}</h2></Link> 
         <div className="task-card-header-buttons">
           {task.completed ? (
             <p onClick={handleCompleteTask}>🔄</p>
