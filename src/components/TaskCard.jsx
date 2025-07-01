@@ -3,7 +3,7 @@ import axios from "axios";
 import {Link} from "react-router";
 import "./TaskCardStyles.css";
 
-const TaskCard = ({ task, fetchAllTasks }) => {
+const TaskCard = ({ task, fetchAllTasks, currentTask}) => {
   const handleCompleteTask = async () => {
     try {
       await axios.patch(`http://localhost:8080/api/tasks/${task.id}`, {
