@@ -46,8 +46,10 @@ const SingleTask = (props) => {
 
 
     return (
-        <main>
-            <h1 className="user-name">{user.name}</h1>
+        <main>{user.name ?<h1 className="user-name">This task is assigned to {user.name}</h1>
+    :
+    <h1 className="user-name">This task is not assigned</h1>}
+            
             <TaskCard task = {currentTask} fetchAllTasks={() => {}}/>
         </main>
     )
