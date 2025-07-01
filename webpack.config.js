@@ -1,7 +1,8 @@
 const path = require("path");
-const webpack = require('webpack');
-const env = dotenv.config().parsed || {};
+const webpack = require("webpack");
+const dotenv = require("dotenv"); 
 
+const env = dotenv.config({ path: `.env.${process.env.NODE_ENV}` }).parsed || {};
 module.exports = {
   mode: "development",
   entry: "./src/App.jsx",
