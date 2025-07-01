@@ -2,7 +2,7 @@ import axios from "axios";
 import React, {use, useEffect, useState} from "react"
 import TaskCard from "./TaskCard";
 import { useParams } from "react-router";
-import api from "./api/axiosInstance";
+import api from "../api/axiosInstance";
 import './SingleTask.css'
 
 const SingleTask = (props) => {

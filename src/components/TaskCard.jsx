@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import {Link} from "react-router";
 import "./TaskCardStyles.css";
-import api from "./api/axiosInstance";
+import api from "../api/axiosInstance";
 
 const TaskCard = ({ task, fetchAllTasks, currentTask}) => {
   const handleCompleteTask = async () => {
