@@ -9,13 +9,14 @@ import CompletedTasks from "./components/CompleteTasks";
 import TaskDetail from "./components/SingleTask";
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 import SingleTask from "./components/SingleTask";
+import api from "./api/axiosInstance";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
 
   async function fetchAllTasks() {
     try {
-      const response = await axios.get("http://localhost:8080/api/tasks");
+      const response = await api.get(`/tasks`);
       setTasks(response.data);
     } catch (error) {
       console.error("Error fetching tasks:", error);

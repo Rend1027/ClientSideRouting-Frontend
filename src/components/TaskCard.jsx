@@ -2,11 +2,12 @@ import React from "react";
 import axios from "axios";
 import {Link} from "react-router";
 import "./TaskCardStyles.css";
+import api from "./api/axiosInstance";
 
 const TaskCard = ({ task, fetchAllTasks, currentTask}) => {
   const handleCompleteTask = async () => {
     try {
-      await axios.patch(`http://localhost:8080/api/tasks/${task.id}`, {
+      await api.patch(`/tasks/${task.id}`, {
         completed: !task.completed,
       });
       fetchAllTasks();
@@ -17,7 +18,7 @@ const TaskCard = ({ task, fetchAllTasks, currentTask}) => {
 
   const handleDeleteTask = async () => {
     try {
-      await axios.delete(`http://localhost:8080/api/tasks/${task.id}`);
+      await api.delete(`/tasks/${task.id}`);
       fetchAllTasks();
     } catch (error) {
       console.error("Error deleting task:", error);

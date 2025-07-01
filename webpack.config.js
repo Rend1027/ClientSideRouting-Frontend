@@ -1,4 +1,6 @@
 const path = require("path");
+const webpack = require('webpack');
+const env = dotenv.config().parsed || {};
 
 module.exports = {
   mode: "development",
@@ -38,4 +40,9 @@ module.exports = {
     historyApiFallback: true,
     port: 3000,
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.API_URL': JSON.stringify(env.API_URL),
+    })
+  ]
 };

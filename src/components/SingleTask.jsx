@@ -2,6 +2,7 @@ import axios from "axios";
 import React, {use, useEffect, useState} from "react"
 import TaskCard from "./TaskCard";
 import { useParams } from "react-router";
+import api from "./api/axiosInstance";
 import './SingleTask.css'
 
 const SingleTask = (props) => {
@@ -18,7 +19,7 @@ const SingleTask = (props) => {
 
     const fetchTaskById = async () => {
         try {
-             const response = await axios.get(`http://localhost:8080/api/tasks/${id}`);
+             const response = await api.get(`/tasks/${id}`);
             setCurrentTask(response.data)
             const user = response.data.userId;
             setCurrentuserId(user)
@@ -33,7 +34,7 @@ const SingleTask = (props) => {
 
     const fetchUserByID = async () => {
         try {
-            const response = await axios.get(`http://localhost:8080/api/users/${userId}`);
+            const response = await api.get(`/users/${userId}`);
             setUser(response.data)
         } catch(error) {
             console.log("failed to fetch user by id", error)
