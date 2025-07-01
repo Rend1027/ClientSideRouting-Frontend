@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: process.env.API_URL,
+    baseURL: "https://client-side-routing-backend-nu.vercel.app/api",
 });
 
 export default api;
