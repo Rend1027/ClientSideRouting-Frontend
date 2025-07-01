@@ -9,6 +9,7 @@ import CompletedTasks from "./components/CompleteTasks";
 import TaskDetail from "./components/SingleTask";
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 import SingleTask from "./components/SingleTask";
+import IncompleteTasks from "./components/IncompleteTasks";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -35,7 +36,8 @@ const App = () => {
             rendering the TaskList and AddTask components directly, no matter what our URL looks like.
             Let's fix that! */}
         <Route path="/add-task" element = {<AddTask fetchAllTasks={fetchAllTasks} />}></Route>
-        <Route path="/completed" element = {<CompletedTasks/>}></Route>
+        <Route path="/completed" element={<CompletedTasks tasks={tasks} fetchAllTasks={fetchAllTasks} />} />
+        <Route path="/incomplete" element={<IncompleteTasks tasks={tasks} fetchAllTasks={fetchAllTasks} />}></Route>
         <Route path="/tasks/:id" element = {<SingleTask/>}></Route>
       </Routes>
     </div>
